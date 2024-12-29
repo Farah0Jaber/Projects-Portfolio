@@ -89,7 +89,7 @@ public class CampusCompanionDAO {
     // Method to get the database URL
     private String getDatabaseUrl() {
         // Replace with absolute path of CCDB.sqlite
-        String DBPath = "H:\\Ernie\\School\\CS370\\CS370CC\\CCDB.sqlite";
+        String DBPath = "PASTE PATH HERE";
         // String DBPath = "/Users/dyerjo/Downloads/CS370-Fall2024-Team10-CampusCompanion-main 6/Code/CS370CC/CCDB.sqlite";
         // Return the database URL with the absolute path
         return "jdbc:sqlite:" + DBPath;
