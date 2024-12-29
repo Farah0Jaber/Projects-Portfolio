@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathroom Details</title>
+    <link rel="preload" href="/images/bathroomspagebackgroundphoto.jpg" as="image">
+    <link rel="stylesheet" href="/css/bathroomdetailsstyles.css">
+</head>
+<body>
+    <div class="container">
+
+    <!-- Top Right User Info -->
+    <div class="user-info" style="position: absolute; top: 10px; right: 10px; font-size: 14px;">
+        Logged in as: <strong th:text="${userEmail}">[User Email]</strong>
+    </div>
+        
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Campus Companion</h2>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/bathrooms}">Bathrooms</a></li>
+            <li><a th:href="@{/clubs}">Clubs</a></li>
+            <li>
+                <a th:if="${userEmail != null}" th:href="@{/logout}">Logout</a>
+                <a th:if="${userEmail == null}" th:href="@{/login}">Login/Sign Up</a>
+            </li>
+        </ul>
+    </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="bathroom-details">
+                <h2 th:text="${bathroom.name}">Bathroom A</h2>
+                <span class="status" th:if="${bathroom.status == true}" style="color: green;">Open</span>
+                <span class="status" th:if="${bathroom.status == false}" style="color: red;">Closed</span>
+            
+                <div th:if="${isMaintenance}">
+                    <label for="toggleStatus">Change Bathroom Status:</label>
+                    <form th:action="@{/bathroom-details/updateStatus}" method="post" style="display: inline;">
+                        <input type="hidden" name="bathroom" th:value="${bathroom.name}">
+                        <select name="status">
+                            <option value="1" th:selected="${bathroom.status}">Open</option>
+                            <option value="0" th:selected="!${bathroom.status}">Closed</option>
+                        </select>
+                        <button type="submit">Update</button>
+                    </form>
+                </div>
+                
+                <p class="rating">
+                    <span th:text="${bathroom.rating}">4.5</span>
+                    <span class="small-text">/5</span>
+                </p>
+                <p><u th:text="'Based on ' + ${bathroom.ratingCount} + ' ratings'">Based on 20 ratings</u></p>
+                <p>Located in <u th:text="${bathroom.location}">Building A</u></p>
+                
+                <!-- Rating Form -->
+                <form th:action="@{/bathroom-details/rate}" method="post" class="rating-form">
+                    <label for="rating">Rate this bathroom:</label>
+                    <input id="rating" name="rating" type="number" step="0.1" min="0.1" max="5.0" required>
+                    <input type="hidden" name="bathroom" th:value="${bathroom.name}">
+                    <button type="submit" class="rate-button">Submit Rating</button>
+                </form>
+
+                <!-- Directions Button -->
+                <a th:href="'https://www.google.com/maps/dir/?api=1&destination=' + ${coordinates} + '&travelmode=walking'" 
+                   target="_blank" class="directions-button">Get Directions</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

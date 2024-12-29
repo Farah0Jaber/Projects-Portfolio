@@ -1,0 +1,6 @@
+Meeting Review:
+Discussed current progress, currently have most methods working in backend. 
+Farah was able to implement my (Ernesto) MVC setup into the web ui aspect.
+Plan on incorporating more methods such as RSVP'ing to an event and adding ratings.
+Will work on getting login/sign-up page working successfully.
+Need to implement method to track currently signed in user across pages, likely a cookie of sorts.

@@ -1,0 +1,10 @@
+Sign-up and Log-in pages work well
+When a club is clicked on, events should display from the Database
+UI design rearrangements for the bathroom details page and the events page
+
+Identified goals for next week:
+Add and integrate RSVP button
+Make it so non logged-in users can enter as guests and get directions but not RSVP and rate
+Make a ‘Club Leader’ user option that can create update delete events
+Give admin the ability to change restroom status using a button
+Populate events table

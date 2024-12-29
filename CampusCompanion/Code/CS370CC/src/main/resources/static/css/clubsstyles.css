@@ -1,0 +1,208 @@
+
+/* General styling for body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh; /* Full-screen height */
+}
+
+/* Main container holding sidebar and content */
+.container {
+    display: flex;
+    width: 100%; /* Full-screen width */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.sidebar h2 {
+    margin-bottom: 20px; /* Space below the title */
+    font-size: 24px; /* Enlarge the title text */
+    text-align: left; /* Keep the title left-aligned */
+}
+
+.sidebar ul {
+    list-style: none; /* No bullet points */
+    padding: 0; /* No padding */
+    margin: 0; /* No margin */
+}
+
+.sidebar li {
+    margin-bottom: 20px; /* Space between items */
+    font-size: 18px; /* Enlarge the text for each item */
+}
+
+.sidebar a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from the parent element */
+    display: block; /* Make the link block-level */
+    width: 100%; /* Make link take the full width */
+    text-align: center; /* Center the link text */
+    padding: 10px 0; /* Add padding to make the item look like a button */
+    border-radius: 5px; /* Rounded corners for better visual appeal */
+}
+
+/* Highlight effect on hover */
+.sidebar li a:hover {
+    background-color: #d9eaff; /* Light blue background on hover */
+    color: blue; /* Change text color on hover */
+}
+
+
+/* Main content styling */
+.main-content {
+    flex: 1; /* Takes the remaining space */
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+/* Image container for background image */
+.image-container {
+    position: absolute; /* Ensure it's positioned within the parent */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the viewport */
+    height: 100%; /* Full height of the viewport */
+    overflow: hidden; /* Prevent any overflow */
+}
+
+.image-container img {
+    width: 100%; /* Scale to the full width */
+    height: 100%; /* Scale to the full height */
+    object-fit: cover; /* Ensure the image covers the container proportionally */
+}
+
+/* Events list styling */
+.clubs-list {
+    position: absolute; /* Overlay on top of image */
+    background-color: white; /* White background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 100%; /* Full width */
+    max-width: 400px; /* Limit max width */
+    text-align: center; /* Center the text */
+}
+
+.clubs-list h2 {
+    margin-bottom: 15px; /* Space below heading */
+}
+
+.clubs-list ul {
+    list-style-type: none; /* No bullet points */
+    padding: 0; /* No padding */
+}
+
+.clubs-list li {
+    margin-bottom: 10px; /* Space between items */
+    font-size: 16px; /* Consistent font size */
+}
+
+/* Styling for directions button */
+.button-container {
+    margin-top: 15px;
+}
+
+.directions-button {
+    background-color: #007BFF; /* Primary blue color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.directions-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Centering the club details box */
+.club-details {
+    position: absolute; /* Position it absolutely relative to the main content */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Shift back by half of its own width and height to fully center */
+    background-color: white; /* White background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    text-align: center;
+    width: 100%; /* Full width */
+    max-width: 400px; /* Limit max width */
+}
+
+.club-events {
+    margin-top: 20px; /* Space above the events section */
+    text-align: center;
+}
+
+.club-events h3 {
+    font-size: 22px; /* Size of the heading */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+.club-events ul {
+
+    text-align: center;
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* No padding */
+}
+
+.club-events li {
+    margin-bottom: 8px; /* Space between event items */
+    font-size: 16px; /* Size of event text */
+}
+
+.events-section ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.events-section h3, .events-section p {
+    text-align: center; /* Ensure each item is centered */
+}
+
+.rsvp-form {
+    margin: 0;
+}
+
+.rsvp-button {
+    background-color: #007BFF; /* Primary blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px; /* Space between the title and the button */
+}
+
+.rsvp-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* User Info Styling */
+.user-info {
+    position: absolute;
+    top: 10px; /* Ensure it is at the top */
+    right: 10px; /* Ensure it is aligned to the right */
+    font-size: 14px; /* Font size */
+    color: #333; /* Text color */
+    background-color: #ffffff; /* Add a white background for visibility */
+    padding: 5px 10px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1000; /* Bring it to the front */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+}

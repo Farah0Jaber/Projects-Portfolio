@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Companion</title>
+    <link rel="stylesheet" href="/css/homestyles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Right User Info -->
+        <div class="user-info" style="position: absolute; top: 10px; right: 10px; font-size: 14px;">
+            Logged in as: <strong th:text="${userEmail}">[User Email]</strong>
+        </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Campus Companion</h2>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/bathrooms}">Bathrooms</a></li>
+            <li><a th:href="@{/clubs}">Clubs</a></li>
+            <li>
+                <a th:if="${userEmail != null}" th:href="@{/logout}">Logout</a>
+                <a th:if="${userEmail == null}" th:href="@{/login}">Login/Sign Up</a>
+            </li>
+        </ul>
+    </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="image-container">
+                <img src="/images/indexpagebackgroundphoto.jpg" alt="Campus">
+            </div>
+            <div class="events-list">
+                <h2>Club Events happening now!</h2>
+                <ul>
+                    <li>Event 1: Basketball Game</li>
+                    <li>Event 2: Coding Bootcamp</li>
+                    <li>Event 3: Music Night</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

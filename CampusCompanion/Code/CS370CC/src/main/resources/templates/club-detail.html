@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${clubName} + ' Details'">Club Details</title>
+    <link rel="preload" href="/images/clubspagebackgroundphoto.jpg" as="image">
+    <link rel="stylesheet" href="/css/clubsstyles.css">
+</head>
+<body>
+    <div class="container">
+
+            <!-- Top Right User Info -->
+    <div class="user-info" style="position: absolute; top: 10px; right: 10px; font-size: 14px;">
+        Logged in as: <strong th:text="${userEmail}">[User Email]</strong>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Campus Companion</h2>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/bathrooms}">Bathrooms</a></li>
+            <li><a th:href="@{/clubs}">Clubs</a></li>
+            <li>
+                <a th:if="${userEmail != null}" th:href="@{/logout}">Logout</a>
+                <a th:if="${userEmail == null}" th:href="@{/login}">Login/Sign Up</a>
+            </li>
+        </ul>
+    </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="image-container">
+                <img src="/images/clubspagebackgroundphoto.jpg" alt="Campus">
+            </div>
+
+            <div class="club-details">
+                <h1 th:text="${clubName}"></h1>
+                <p>President: <span th:text="${president}"></span></p>
+
+                <!-- Events Section inside the white box -->
+                <div class="events-section">
+                    <h2>Upcoming Events</h2>
+                    <ul>
+                        <li th:each="event : ${events}">
+                            <h3 th:text="${event.name}"></h3>
+                            <p th:text="'Date: ' + ${event.date}"></p>
+                            <p th:text="'Location: ' + ${event.location}"></p>
+                            <p th:text="'RSVP Count: ' + ${event.RSVPCount}"></p>
+
+                            <form th:action="@{/events/rsvp}" method="post" style="display:inline;">
+                                <input type="hidden" name="eventID" th:value="${event.eventID}">
+                                <input type="hidden" name="clubName" th:value="${clubName}">
+                                <button type="submit" class="rsvp-button">RSVP</button>
+                            </form>
+
+                            <!-- Directions Button -->
+                            <a th:href="|https://www.google.com/maps/dir/?api=1&destination=${event.location}&travelmode=walking|" 
+                            target="_blank" class="directions-button">Get Directions</a>
+                         
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

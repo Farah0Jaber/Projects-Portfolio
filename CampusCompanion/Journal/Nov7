@@ -1,0 +1,4 @@
+Sprint Goals:
+As we hve requirements, we wish to get our database and tomcat working.
+Currently have SQLite working and tomcat, need to find out how to integrate the two.
+Will then implement ERD into our db.

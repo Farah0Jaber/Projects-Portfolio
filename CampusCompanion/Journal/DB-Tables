@@ -1,0 +1,37 @@
+Bathroom
+PK: Name : string
+Status : Bool
+Rating : double (Average of all reviews out of 5)
+Location : string
+
+Reviews
+PK: ReviewID : int
+Name : String (Matching Bathroom Name)
+Reviewer : String(Matching user email)
+Rating : double
+
+Clubs
+PK: Name : string
+FK: President (Name from users table)
+
+Events
+PK: EventID : int
+FK: Club : string (Name from Club table)
+Name : string
+Date : string
+location : string
+RSVPCount : int
+
+RSVP
+PK : RSVP_ID : int
+EventID : int
+Email : string
+
+Buildings
+PK: Name : string
+location : string
+
+Users
+PK: Email : string
+FullName : string
+Role : string

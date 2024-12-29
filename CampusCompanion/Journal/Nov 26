@@ -1,0 +1,10 @@
+ Added methods for RSVPing and Rating
+ Buildings and Bathrooms tables were populated in the DB
+ Navigation is implemented and uses Google Maps
+
+ Identified goals for next week:
+ Work on getting HTTP session to carry String email for use in page methods.
+ Remove hard coded data from Home/club details page. Login/Sign-up view needs to communicate with event handler.
+ Priorities: Bathroom rating needs to be fixed, tie it to existing method in bathroom dao/management.
+ Club details needs to tie to controller/DB.
+ Fix Login/sign up page.

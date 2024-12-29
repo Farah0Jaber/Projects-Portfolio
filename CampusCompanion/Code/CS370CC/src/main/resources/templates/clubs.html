@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs on Campus</title>
+    <link rel="preload" href="/images/clubspagebackgroundphoto.jpg" as="image">
+    <link rel="stylesheet" href="/css/clubsstyles.css">
+</head>
+<body>
+    <div class="container">
+
+            <!-- Top Right User Info -->
+    <div class="user-info" style="position: absolute; top: 10px; right: 10px; font-size: 14px;">
+        Logged in as: <strong th:text="${userEmail}">[User Email]</strong>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Campus Companion</h2>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/bathrooms}">Bathrooms</a></li>
+            <li><a th:href="@{/clubs}">Clubs</a></li>
+            <li>
+                <a th:if="${userEmail != null}" th:href="@{/logout}">Logout</a>
+                <a th:if="${userEmail == null}" th:href="@{/login}">Login/Sign Up</a>
+            </li>
+        </ul>
+    </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="image-container">
+                <img src="/images/clubspagebackgroundphoto.jpg" alt="Campus">
+            </div>
+            <!-- Clubs List Box -->
+            <div class="clubs-list">
+                <h2>Clubs on Campus</h2>
+                <ul>
+                    <!-- Render clubs dynamically -->
+                    <li th:each="club : ${clubs}">
+                        <a th:href="@{'/club-detail/' + ${club}}" th:text="${club}"></a>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

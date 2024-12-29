@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+}
+.container {
+    display: flex;
+    width: 100%;
+}
+.sidebar {
+    width: 250px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: left;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar li {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.sidebar a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+.sidebar li a:hover {
+    background-color: #d9eaff;
+    color: blue;
+}
+.main-content {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+.bathroom-details {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.bathroom-details h2 {
+    margin-bottom: 10px;
+}
+.bathroom-details .rating {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+.bathroom-details .small-text {
+    font-size: 24px;
+}
+.bathroom-details p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+.bathroom-details h3 {
+    font-size: 28px;
+    margin-top: 10px;
+}
+.button-container {
+    margin-top: 15px;
+}
+.rate-button, .directions-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+/* Spacing between buttons */
+.rate-button {
+    margin-bottom: 30px;
+}
+.rate-button:hover, .directions-button:hover {
+    background-color: #0056b3;
+}
+.main-content {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    background: url('/images/bathroomspagebackgroundphoto.jpg') no-repeat center center;
+    background-size: cover;
+}
+/* User Info Styling */
+.user-info {
+    position: absolute;
+    top: 10px; /* Ensure it is at the top */
+    right: 10px; /* Ensure it is aligned to the right */
+    font-size: 14px; /* Font size */
+    color: #333; /* Text color */
+    background-color: #ffffff; /* Add a white background for visibility */
+    padding: 5px 10px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1000; /* Bring it to the front */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+}
+
+.status {
+    font-size: 18px; /* Adjust size as needed */
+    margin-left: 10px; /* Space between name and status */
+    font-weight: bold;
+    color: green; /* Green text for "open" */
+    display: inline-block; /* Ensures proper alignment */
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/loginstyles.css">
+</head>
+<body class="signup-page">
+    <div class="container">
+
+            <!-- Top Right User Info -->
+    <div class="user-info" style="position: absolute; top: 10px; right: 10px; font-size: 14px;">
+        Logged in as: <strong th:text="${userEmail}">[User Email]</strong>
+    </div>
+
+        <!-- Sidebar for navigation -->
+        <aside class="sidebar">
+            <h2>Campus Companion</h2>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/bathrooms}">Bathrooms</a></li>
+                <li><a th:href="@{/clubs}">Clubs</a></li>
+                <li><a th:href="@{/login}">Login/Sign Up</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="signup-box">
+                <h2>Sign Up</h2>
+
+                <!-- Success or Error Messages -->
+                <div th:if="${param.error}" class="message-error">
+                    <p th:text="${param.error}"></p>
+                </div>
+                <div th:if="${param.success}" class="message-success">
+                    <p th:text="${param.success}"></p>
+                </div>
+
+                <!-- Sign-Up Form -->
+                <form action="/signup" method="POST">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                    <label for="role">Role</label>
+                    <select id="role" name="role" required>
+                        <option value="">Select your role</option>
+                        <option value="student">Student</option>
+                        <option value="maintenance">Maintenance Staff</option>
+                        <option value="event_manager">Club Event Manager</option>
+
+                    </select>
+
+                    <button type="submit">Submit</button>
+                </form>
+                <a href="/login">Already have an account? Login</a>
+                <a th:href="@{/}">Back to Home</a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Styles for messages -->
+    <style>
+        .message-success {
+            color: #155724;
+            background-color: #d4edda;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .message-error {
+            color: #721c24;
+            background-color: #f8d7da;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</body>
+</html>

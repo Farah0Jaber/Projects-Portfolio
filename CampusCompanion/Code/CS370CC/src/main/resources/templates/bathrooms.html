@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Companion - Bathrooms</title>
+    <link rel="preload" href="/images/bathroomspagebackgroundphoto.jpg" as="image">
+    <link rel="stylesheet" href="/css/bathroomsstyles.css">
+</head>
+<body>
+<div class="container">
+
+    <!-- Top Right User Info -->
+    <div class="user-info" style="position: absolute; top: 10px; right: 10px; font-size: 14px;">
+        Logged in as: <strong th:text="${userEmail}">[User Email]</strong>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Campus Companion</h2>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/bathrooms}">Bathrooms</a></li>
+            <li><a th:href="@{/clubs}">Clubs</a></li>
+            <li>
+                <a th:if="${userEmail != null}" th:href="@{/logout}">Logout</a>
+                <a th:if="${userEmail == null}" th:href="@{/login}">Login/Sign Up</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="image-container">
+            <img src="/images/bathroomspagebackgroundphoto.jpg" alt="Campus">
+        </div>
+        <div class="bathrooms-list">
+            <div class="sticky-header">
+                <h2>Bathrooms on Campus</h2>
+
+                <!-- Filter and Sort Form -->
+                <form method="get" th:action="@{/bathrooms}" class="filter-sort">
+                    <label for="building-filter">Filter by Building:</label>
+                    <select id="building-filter" name="building" th:value="${selectedBuilding}">
+                        <option value="all" th:selected="${selectedBuilding == 'all'}">All Buildings</option>
+                        <option th:each="building : ${buildings}" 
+                                th:value="${building}" 
+                                th:text="${building}" 
+                                th:selected="${selectedBuilding == building}"></option>
+                    </select>
+
+                    <label for="sort-options">Sort by:</label>
+                    <select id="sort-options" name="sortBy" th:value="${selectedSortBy}">
+                        <option value="alphabetical" th:selected="${selectedSortBy == 'alphabetical'}">Alphabetical</option>
+                        <option value="cleanliest" th:selected="${selectedSortBy == 'cleanliest'}">Cleanliest</option>
+                    </select>
+
+                    <button type="submit">Apply</button>
+                </form>
+            </div>
+
+            <!-- Bathrooms List -->
+            <div class="bathroom-columns">
+                <div th:each="bathroom : ${bathrooms}">
+                    <a th:href="@{'/bathroom-details/' + ${bathroom.name}}" th:text="${bathroom.name}"></a>
+                    <span th:text="'Rating - ' + ${bathroom.rating} + '/5'"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

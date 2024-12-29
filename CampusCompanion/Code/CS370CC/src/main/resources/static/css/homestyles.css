@@ -1,0 +1,179 @@
+/* General styling for body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh; /* Full-screen height */
+}
+
+/* Main container holding sidebar and content */
+.container {
+    display: flex;
+    width: 100%; /* Full-screen width */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.sidebar h2 {
+    margin-bottom: 20px; /* Space below the title */
+    font-size: 24px; /* Enlarge the title text */
+    text-align: left; /* Keep the title left-aligned */
+}
+
+.sidebar ul {
+    list-style: none; /* No bullet points */
+    padding: 0; /* No padding */
+    margin: 0; /* No margin */
+}
+
+.sidebar li {
+    margin-bottom: 20px; /* Space between items */
+    font-size: 18px; /* Enlarge the text for each item */
+}
+
+.sidebar a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from the parent element */
+    display: block; /* Make the link block-level */
+    width: 100%; /* Make link take the full width */
+    text-align: center; /* Center the link text */
+    padding: 10px 0; /* Add padding to make the item look like a button */
+    border-radius: 5px; /* Rounded corners for better visual appeal */
+}
+
+/* Highlight effect on hover */
+.sidebar li a:hover {
+    background-color: #d9eaff; /* Light blue background on hover */
+    color: blue; /* Change text color on hover */
+}
+
+.main-content {
+    flex: 1; /* Takes the remaining space */
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: #f0f0f0; /* Light background color */
+}
+
+
+.image-container {
+    flex: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Settings details styling */
+.settings-details {
+    position: relative;
+    background-color: white; /* White background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 100%; /* Full width */
+    max-width: 500px; /* Limit max width */
+    text-align: left; /* Align text to the left */
+    z-index: 1; /* Ensure content is above the image */
+}
+
+/* Styling for user details */
+.settings-details p {
+    margin: 5px 0; /* Space between paragraphs */
+    font-size: 18px; /* Adjust font size */
+}
+
+.settings-details h2 {
+    margin-bottom: 15px; /* Space below headings */
+}
+
+.events-list {
+    position: relative; /* Overlay on top of image */
+    background-color: white; /* White background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 100%; /* Full width */
+    max-width: 400px; /* Limit max width */
+    text-align: center; /* Center the text */
+}
+
+.events-list h2 {
+    margin-bottom: 15px; /* Space below heading */
+}
+
+.events-list ul {
+    list-style-type: none; /* No bullet points */
+    padding: 0; /* No padding */
+    margin: 0; /* No margin */
+}
+
+.events-list li {
+    margin-bottom: 10px; /* Space between items */
+    font-size: 16px; /* Consistent font size */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Button styling */
+.edit-button, .delete-button, .delete-account-button {
+    background-color: #007BFF; /* Primary blue */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px; /* Space between buttons */
+}
+
+.delete-button {
+    background-color: #FF4D4D; /* Red background for delete */
+}
+
+.edit-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.delete-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+.delete-account-button {
+    background-color: #FF4D4D; /* Red background */
+    margin-top: 20px; /* Space above the delete account button */
+    width: 100%; /* Full width */
+}
+
+.delete-account-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+/* User Info Styling */
+.user-info {
+    position: absolute;
+    top: 10px; /* Ensure it is at the top */
+    right: 10px; /* Ensure it is aligned to the right */
+    font-size: 14px; /* Font size */
+    color: #333; /* Text color */
+    background-color: #ffffff; /* Add a white background for visibility */
+    padding: 5px 10px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1000; /* Bring it to the front */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+}
+
